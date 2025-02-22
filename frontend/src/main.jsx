@@ -1,12 +1,10 @@
-import { Provider } from './components/ui/provider.js'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import App from './Dashboard.jsx'
+import Dashboard from './Dashboard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider>
-      <App />
-    </Provider>
+    <Dashboard />
   </StrictMode>,
 )
