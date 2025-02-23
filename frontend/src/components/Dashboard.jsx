@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./Dashboard.css"; // Updated styles
+import "../styles/Dashboard.css"; // Updated styles
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
   const [active, setActive] = useState("Home");
+  const navigate = useNavigate()
 
   return (
     <div className="dashboard-container">
@@ -14,11 +16,14 @@ export default function Dashboard() {
         <div className="navbar-container">
           <div className="logo">YourLogo</div>
           <ul className="nav-menu">
-            {["Home", "Honeypot", "USB Monitor", "File Scanner", "Rollback System"].map((item) => (
+            {["Home", "Honeypot", "USB Monitor", "File Scanner", "File Signature"].map((item) => (
               <li
                 key={item}
                 className={`nav-item ${active === item ? "active" : ""}`}
-                onClick={() => setActive(item)}
+                onClick={() => {
+                  setActive(item)
+                  navigate(`/${item.split(" ").join("")}`)
+                }}
               >
                 {item}
               </li>
