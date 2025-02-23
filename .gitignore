@@ -4,6 +4,7 @@ frontend/emsdk
 package-lock.json
 
 backend/
+backend-py/node_modules/
 backend-py/main2.exe
 backend-py/main3.exe
 backend-py/ui.py
