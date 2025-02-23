@@ -15,13 +15,31 @@ export default function Dashboard() {
     console.log(`Downloading script for ${feature}`);
   };
 
+  const zipurls = [
+    "https://github.com/user-attachments/files/18928476/honeypot.zip",
+    "https://github.com/user-attachments/files/18928479/usb.zip",
+    "https://github.com/user-attachments/files/18928477/monitor.zip",
+    "https://github.com/user-attachments/files/18928474/backup.zip",
+    "https://github.com/user-attachments/files/18928475/file_sign.zip",
+    "https://github.com/user-attachments/files/18928478/ram_and_process.zip",
+  ]
+
+  const texturls = [
+    "https://github.com/user-attachments/files/18928570/honeypot.md",
+    "https://github.com/user-attachments/files/18928572/usb_manual.md",
+    "https://github.com/user-attachments/files/18928573/monitor.md",
+    "https://github.com/user-attachments/files/18928575/rollback.md",
+    "https://github.com/user-attachments/files/18928571/file_sign_manual.md",
+    "https://github.com/user-attachments/files/18928574/ram_and_process_readme.md"
+  ]
+
   const features = [
-    { title: "🕵 Honeypot Triggers", desc: "Detect ransomware using bait files", color: "#ff4d4d", feature: "honeypot" },
-    { title: "🔌 USB Monitor", desc: "Detect unauthorized USB devices", color: "#ffaa00", feature: "usb" },
-    { title: "📂 File Monitoring", desc: "Track suspicious file system changes", color: "#0099ff", feature: "filesystem" },
-    { title: "🔄 Rollback System", desc: "Restore files after an attack", color: "#00ff99", feature: "rollback" },
-    { title: "🌐 Network Analysis", desc: "Monitor network traffic for anomalies", color: "#9966ff", feature: "network" },
-    { title: "🛡 Firewall Protection", desc: "Enhance security with real-time firewall monitoring", color: "#ff66cc", feature: "firewall" }
+    { title: " Honeypot Triggers", desc: "Detect ransomware using bait files", color: "#ff4d4d", feature: "honeypot" },
+    { title: " USB Monitor", desc: "Detect unauthorized USB devices", color: "#ffaa00", feature: "usb" },
+    { title: " File Monitoring", desc: "Track suspicious file system changes", color: "#0099ff", feature: "filesystem" },
+    { title: " Rollback System", desc: "Restore files after an attack", color: "#00ff99", feature: "rollback" },
+    { title: " File Signature", desc: "Monitor network traffic for anomalies", color: "#9966ff", feature: "network" },
+    { title: " Analyze RAM and Process Anamolies", desc: "Enhance security with real-time firewall monitoring", color: "#ff66cc", feature: "firewall" }
   ];
 
   return (
@@ -56,10 +74,10 @@ export default function Dashboard() {
                 <p>{item.desc}</p>
                 <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
                   <button className="cta-button" onClick={() => handleDownloadScript(item.feature)}>
-                    Download Script
+                  <a href={zipurls[index]}> Download Script</a>
                   </button>
                   <button className="cta-button" onClick={() => handleDownloadScript(`${item.feature}-manual`)}>
-                    Download Manual
+                   <a href={texturls[index]}> Download Manual</a> 
                   </button>
                 </div>
               </div>
@@ -72,10 +90,11 @@ export default function Dashboard() {
                 <p>{item.desc}</p>
                 <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
                   <button className="cta-button" onClick={() => handleDownloadScript(item.feature)}>
-                    Download Script
+                  <a href={zipurls[index]}> Download Script</a>
                   </button>
                   <button className="cta-button" onClick={() => handleDownloadScript(`${item.feature}-manual`)}>
-                    Download Manual
+                  <a href={texturls[index]}
+                   > Download Script</a> 
                   </button>
                 </div>
               </div>
