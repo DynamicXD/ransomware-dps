@@ -149,7 +149,7 @@ body {
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
+  align-items: center;
 }
 
 .dashboard-card:hover {
@@ -163,8 +163,8 @@ body {
   display: flex;
   gap: 8px;
   margin-top: 15px;
-  justify-content: center; /* Center buttons horizontally */
-  width: 100%; /* Ensure the button group takes full width */
+  justify-content: center;
+  width: 100%;
 }
 
 .cta-button {
@@ -177,14 +177,24 @@ body {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
-  flex: 1; /* Allow buttons to grow equally */
-  max-width: 150px; /* Limit button width */
+  flex: 1;
+  max-width: 150px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-button:visited,
+.cta-button:active {
+  color: black;
 }
 
 .cta-button:hover {
   background: white;
   color: black;
   transform: scale(1.05);
+  text-decoration: none;
 }
 
 /* Responsive Design */

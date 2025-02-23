@@ -11,8 +11,10 @@ export default function Dashboard() {
     navigate(`/${route.split(" ").join("")}`);
   };
 
-  const handleDownloadScript = (feature) => {
-    console.log(`Downloading script for ${feature}`);
+  const handleDownload = (e, url, feature, type) => {
+    e.preventDefault();
+    console.log(`Downloading ${type} for ${feature}`);
+    window.open(url, '_blank');
   };
 
   const zipurls = [
@@ -22,7 +24,7 @@ export default function Dashboard() {
     "https://github.com/user-attachments/files/18928474/backup.zip",
     "https://github.com/user-attachments/files/18928475/file_sign.zip",
     "https://github.com/user-attachments/files/18928478/ram_and_process.zip",
-  ]
+  ];
 
   const texturls = [
     "https://github.com/user-attachments/files/18928570/honeypot.md",
@@ -31,7 +33,7 @@ export default function Dashboard() {
     "https://github.com/user-attachments/files/18928575/rollback.md",
     "https://github.com/user-attachments/files/18928571/file_sign_manual.md",
     "https://github.com/user-attachments/files/18928574/ram_and_process_readme.md"
-  ]
+  ];
 
   const features = [
     { title: " Honeypot Triggers", desc: "Detect ransomware using bait files", color: "#ff4d4d", feature: "honeypot" },
@@ -39,7 +41,7 @@ export default function Dashboard() {
     { title: " File Monitoring", desc: "Track suspicious file system changes", color: "#0099ff", feature: "filesystem" },
     { title: " Rollback System", desc: "Restore files after an attack", color: "#00ff99", feature: "rollback" },
     { title: " File Signature", desc: "Monitor network traffic for anomalies", color: "#9966ff", feature: "network" },
-    { title: " Analyze RAM and Process Anamolies", desc: "Enhance security with real-time firewall monitoring", color: "#ff66cc", feature: "firewall" }
+    { title: " Analyze RAM and Process Anomalies", desc: "Enhance security with real-time firewall monitoring", color: "#ff66cc", feature: "firewall" }
   ];
 
   return (
@@ -51,7 +53,11 @@ export default function Dashboard() {
           <div className="logo">0xpwnsec</div>
           <ul className="nav-menu">
             {["Home", "Honeypot", "USB Monitor", "Logs", "File Signature"].map((item) => (
-              <li key={item} className={`nav-item ${active === item ? "active" : ""}`} onClick={() => handleNavigation(item)}>
+              <li 
+                key={item} 
+                className={`nav-item ${active === item ? "active" : ""}`} 
+                onClick={() => handleNavigation(item)}
+              >
                 {item}
               </li>
             ))}
@@ -67,35 +73,54 @@ export default function Dashboard() {
         </div>
 
         <div className="dashboard-grid">
-          <div className="dashboard-row center-row">
+          <div className="dashboard-row">
             {features.slice(0, 3).map((item, index) => (
               <div className="dashboard-card" key={index} style={{ borderColor: item.color }}>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
-                  <button className="cta-button" onClick={() => handleDownloadScript(item.feature)}>
-                  <a href={zipurls[index]}> Download Script</a>
-                  </button>
-                  <button className="cta-button" onClick={() => handleDownloadScript(`${item.feature}-manual`)}>
-                   <a href={texturls[index]}> Download Manual</a> 
-                  </button>
+                <div className="button-group">
+                  <a
+                    href={zipurls[index]}
+                    className="cta-button"
+                    onClick={(e) => handleDownload(e, zipurls[index], item.feature, 'script')}
+                    download
+                  >
+                    Download Script
+                  </a>
+                  <a
+                    href={texturls[index]}
+                    className="cta-button"
+                    onClick={(e) => handleDownload(e, texturls[index], item.feature, 'manual')}
+                    download
+                  >
+                    Download Manual
+                  </a>
                 </div>
               </div>
             ))}
           </div>
           <div className="dashboard-row">
             {features.slice(3, 6).map((item, index) => (
-              <div className="dashboard-card" key={index} style={{ borderColor: item.color }}>
+              <div className="dashboard-card" key={index + 3} style={{ borderColor: item.color }}>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
-                <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
-                  <button className="cta-button" onClick={() => handleDownloadScript(item.feature)}>
-                  <a href={zipurls[index]}> Download Script</a>
-                  </button>
-                  <button className="cta-button" onClick={() => handleDownloadScript(`${item.feature}-manual`)}>
-                  <a href={texturls[index]}
-                   > Download Script</a> 
-                  </button>
+                <div className="button-group">
+                  <a
+                    href={zipurls[index + 3]}
+                    className="cta-button"
+                    onClick={(e) => handleDownload(e, zipurls[index + 3], item.feature, 'script')}
+                    download
+                  >
+                    Download Script
+                  </a>
+                  <a
+                    href={texturls[index + 3]}
+                    className="cta-button"
+                    onClick={(e) => handleDownload(e, texturls[index + 3], item.feature, 'manual')}
+                    download
+                  >
+                    Download Manual
+                  </a>
                 </div>
               </div>
             ))}
