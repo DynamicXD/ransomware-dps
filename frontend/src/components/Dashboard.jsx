@@ -40,7 +40,7 @@ export default function Dashboard() {
     { title: " USB Monitor", desc: "Detect unauthorized USB devices", color: "#ffaa00", feature: "usb" },
     { title: " File Monitoring", desc: "Track suspicious file system changes", color: "#0099ff", feature: "filesystem" },
     { title: " Rollback System", desc: "Restore files after an attack", color: "#00ff99", feature: "rollback" },
-    { title: " File Signature", desc: "Monitor network traffic for anomalies", color: "#9966ff", feature: "network" },
+    { title: " File Signature", desc: "Monitors Files for File Header/Magic Bytes Modifications", color: "#9966ff", feature: "network" },
     { title: " Analyze RAM and Process Anomalies", desc: "Enhance security with real-time firewall monitoring", color: "#ff66cc", feature: "firewall" }
   ];
 
