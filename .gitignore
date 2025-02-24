@@ -1,10 +1,9 @@
-backend/node_modules
 frontend/node_modules
 frontend/emsdk
 package-lock.json
 
-backend/
-backend-py/node_modules/
-backend-py/main2.exe
-backend-py/main3.exe
-backend-py/ui.py
+backendd/
+backend/node_modules/
+backend/main2.exe
+backend/main3.exe
+backend/ui.py
